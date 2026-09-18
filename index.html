@@ -1,428 +1,277 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#171310" />
-    <meta
-      name="description"
-      content="Habesharon — contemporary Ethiopian fashion shaped by heritage, craft and modern elegance."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Habesharon — Contemporary Ethiopian Fashion</title>
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#171310" />
+  <meta name="description" content="Habesharon — contemporary Ethiopian fashion shaped by heritage, ceremony and craft." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="assets/editorial-red-v3.webp" fetchpriority="high" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Habesharon — Contemporary Ethiopian Fashion</title>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header class="site-header" data-header>
-      <a class="brand" href="#home" aria-label="Habesharon home">
-        <span class="brand-mark" aria-hidden="true">HS</span>
-        <span class="brand-name">Habesharon</span>
-      </a>
+  <header class="site-header" data-header>
+    <a class="brand" href="#home" aria-label="Habesharon home">
+      <span class="brand-mark">HS</span>
+      <span class="brand-name">Habesharon</span>
+    </a>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span>
-        <span class="sr-only">Open navigation</span>
-      </button>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span class="sr-only">Open menu</span>
+    </button>
 
-      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-        <a href="#story" data-nav="story">Our story</a>
-        <a href="#collection" data-nav="collection">Collection</a>
-        <a href="#craft" data-nav="craft">Craft</a>
-        <a class="nav-cta" href="#order" data-nav="order">Order a piece</a>
-      </nav>
-    </header>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="#story" data-nav="story">Our story</a>
+      <a href="#collection" data-nav="collection">Collection</a>
+      <a href="#craft" data-nav="craft">Craft</a>
+      <a class="nav-cta" href="#order" data-nav="order">Order a piece</a>
+    </nav>
+  </header>
 
-    <main id="main-content">
-      <section class="runway" id="home" aria-label="Featured Habesharon looks">
-        <div class="runway-sticky">
-          <div class="runway-rail" id="runway-rail" tabindex="0" aria-label="Swipe through featured looks">
-            <article class="runway-slide runway-intro" aria-label="Habesharon introduction">
-              <div class="intro-fabric" aria-hidden="true"></div>
-              <div class="intro-copy" data-slide-copy>
-                <p class="eyebrow">Addis Ababa · Ethiopia</p>
-                <h1>Heritage,<br /><em>in motion.</em></h1>
-                <p class="intro-lede">The soul of Habesha, styled for now.</p>
-                <a class="text-link" href="#collection">Explore the collection <span>↘</span></a>
-              </div>
-              <figure class="intro-portrait" data-slide-media>
-                <img
-                  src="assets/editorial-red-v3.webp"
-                  alt="Woman wearing a white Ethiopian dress with red embroidery"
-                  width="640"
-                  height="799"
-                  fetchpriority="high"
-                />
-              </figure>
-              <p class="intro-wordmark" aria-hidden="true">HABESHA<br />RON</p>
-            </article>
-
-            <article class="runway-slide look-slide look-rose" aria-label="Rose heritage gown">
-              <div class="look-backdrop" aria-hidden="true"></div>
-              <figure class="look-frame" data-slide-media>
-                <img
-                  class="look-image"
-                  src="assets/editorial-rose-v3.webp"
-                  alt="Woman in a rose and ivory Ethiopian evening gown"
-                  width="628"
-                  height="800"
-                />
-              </figure>
-              <div class="look-shade" aria-hidden="true"></div>
-              <div class="look-copy" data-slide-copy>
-                <p class="look-number">Look 01 · Ceremony</p>
-                <h2>Rose<br /><em>Heritage</em></h2>
-                <p>A ceremonial silhouette with a softer, contemporary proportion.</p>
-              </div>
-              <p class="vertical-note" aria-hidden="true">HERITAGE · REFRAMED</p>
-            </article>
-
-            <article class="runway-slide look-slide look-union" aria-label="Ivory union collection">
-              <div class="look-backdrop" aria-hidden="true"></div>
-              <figure class="look-frame" data-slide-media>
-                <img
-                  class="look-image"
-                  src="assets/editorial-union-v3.webp"
-                  alt="Couple in coordinated ivory and green Ethiopian clothing"
-                  width="600"
-                  height="800"
-                  loading="lazy"
-                />
-              </figure>
-              <div class="look-shade" aria-hidden="true"></div>
-              <div class="look-copy" data-slide-copy>
-                <p class="look-number">Look 02 · Together</p>
-                <h2>Ivory<br /><em>Union</em></h2>
-                <p>Coordinated ceremonial dressing with quiet green detailing.</p>
-              </div>
-              <p class="vertical-note" aria-hidden="true">A STUDY IN TOGETHERNESS</p>
-            </article>
-
-            <article class="runway-slide look-slide look-gold" aria-label="Golden hour collection">
-              <div class="look-backdrop" aria-hidden="true"></div>
-              <figure class="look-frame" data-slide-media>
-                <img
-                  class="look-image"
-                  src="assets/editorial-sun-v3.webp"
-                  alt="Woman wearing an ivory dress with ornate gold embroidery"
-                  width="736"
-                  height="920"
-                  loading="lazy"
-                />
-              </figure>
-              <div class="look-shade" aria-hidden="true"></div>
-              <div class="look-copy" data-slide-copy>
-                <p class="look-number">Look 03 · Detail</p>
-                <h2>Golden<br /><em>Hour</em></h2>
-                <p>Warm metallic detail set against a calm ivory silhouette.</p>
-              </div>
-              <p class="vertical-note" aria-hidden="true">CEREMONY · REIMAGINED</p>
-            </article>
-
-            <article class="runway-slide look-slide look-tailored" aria-label="Tailored heritage menswear">
-              <div class="look-backdrop" aria-hidden="true"></div>
-              <figure class="look-frame" data-slide-media>
-                <img
-                  class="look-image"
-                  src="assets/editorial-tailored-v3.webp"
-                  alt="Man wearing a contemporary white Ethiopian suit with green woven details"
-                  width="736"
-                  height="976"
-                  loading="lazy"
-                />
-              </figure>
-              <div class="look-shade" aria-hidden="true"></div>
-              <div class="look-copy" data-slide-copy>
-                <p class="look-number">Look 04 · Tailoring</p>
-                <h2>Tailored<br /><em>Roots</em></h2>
-                <p>Traditional pattern translated into a sharper formal statement.</p>
-                <a class="outline-button" href="#order">Request this look</a>
-              </div>
-              <p class="vertical-note" aria-hidden="true">THE NEW FORMAL</p>
-            </article>
-          </div>
-
-          <div class="runway-ui" aria-hidden="true">
-            <div class="runway-count"><span data-current>01</span><span>/</span><span>05</span></div>
-            <div class="runway-progress"><span data-progress></span></div>
-            <p>Scroll or swipe</p>
-          </div>
-
-          <div class="runway-controls">
-            <button type="button" data-prev aria-label="Previous look">←</button>
-            <button type="button" data-next aria-label="Next look">→</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="manifesto section-pad" id="story" data-section="story">
-        <div class="section-index reveal"><span>01</span> Our story</div>
-        <div class="manifesto-grid">
-          <p class="manifesto-kicker reveal">Tradition is the starting point.</p>
-          <h2 class="reveal">Rooted here.<br /><em>Designed forward.</em></h2>
-          <div class="manifesto-copy reveal">
-            <p>
-              Habesharon brings Ethiopian dress into a cleaner contemporary language—honouring familiar
-              patterns, ceremony and detail without making the clothing feel frozen in time.
-            </p>
-            <p>
-              The result is clothing made to feel distinctly Ethiopian and confidently present.
-            </p>
-          </div>
-        </div>
-
-        <div class="story-editorial">
-          <figure class="story-image story-image-main reveal">
-            <img src="assets/verdant-ceremony.webp" alt="Full-length white and green Ethiopian dress" loading="lazy" />
-          </figure>
-          <div class="story-note reveal">
-            <span class="story-line"></span>
-            <p>Heritage gives the language.<br />The silhouette gives it movement.</p>
-          </div>
-          <figure class="story-image story-image-detail reveal">
-            <img src="assets/editorial-gold-v3.webp" alt="Close detail of gold embroidery" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section class="collection section-pad" id="collection" data-section="collection">
-        <div class="collection-heading reveal">
-          <div class="section-index"><span>02</span> Signature collection</div>
-          <h2>Pieces with<br /><em>presence.</em></h2>
-          <p>Not a catalogue. A selection of moods, occasions and silhouettes.</p>
-        </div>
-
-        <div class="collection-grid">
-          <article class="piece-card piece-card-tall reveal">
-            <figure>
-              <div class="piece-media">
-                <img
-                  src="assets/verdant-ceremony.webp"
-                  alt="Woman in a white and green full-length Ethiopian dress"
-                  width="736"
-                  height="920"
-                  loading="lazy"
-                />
-                <span class="piece-arrow" aria-hidden="true">↗</span>
-              </div>
-              <figcaption><span>01</span><strong>Ceremony</strong><span>Verdant</span></figcaption>
+  <main id="main-content">
+    <section class="runway" id="home" aria-label="Featured Habesharon looks">
+      <div class="runway-sticky">
+        <div class="runway-rail" id="runway-rail" tabindex="0">
+          <article class="runway-slide intro-slide">
+            <div class="intro-bg" aria-hidden="true"></div>
+            <div class="intro-copy" data-slide-copy>
+              <p class="eyebrow">Addis Ababa · Ethiopia</p>
+              <h1>Heritage,<br><em>in motion.</em></h1>
+              <p class="intro-lede">The soul of Habesha, styled for now.</p>
+              <a class="text-link" href="#collection">Explore the collection <span>↘</span></a>
+            </div>
+            <figure class="intro-media" data-slide-media>
+              <img src="assets/editorial-red-v3.webp" alt="Woman in an Ethiopian dress with red and gold embroidery" width="1200" height="1500" />
             </figure>
+            <p class="ghost-word" aria-hidden="true">HABESHA<br>RON</p>
           </article>
 
-          <article class="piece-card piece-card-offset reveal">
-            <figure>
-              <div class="piece-media">
-                <img
-                  src="assets/editorial-sun-v3.webp"
-                  alt="Woman seated in an ivory and amber Ethiopian dress"
-                  width="736"
-                  height="981"
-                  loading="lazy"
-                />
-                <span class="piece-arrow" aria-hidden="true">↗</span>
-              </div>
-              <figcaption><span>02</span><strong>Occasion</strong><span>Amber</span></figcaption>
+          <article class="runway-slide look-slide look-rose layout-left">
+            <div class="look-bg" aria-hidden="true"></div>
+            <figure class="look-media" data-slide-media>
+              <img src="assets/editorial-rose-v3.webp" alt="Woman in a structured ivory ceremonial gown with woven red detail" width="1200" height="1500" loading="lazy" />
             </figure>
+            <div class="look-overlay" aria-hidden="true"></div>
+            <div class="look-copy" data-slide-copy>
+              <p class="look-number">Look 01 · Ceremony</p>
+              <h2>Rose<br><em>Heritage</em></h2>
+              <p>A ceremonial silhouette redrawn with a modern sense of proportion.</p>
+            </div>
+            <p class="vertical-note">HERITAGE · REFRAMED</p>
           </article>
 
-          <article class="piece-card reveal">
-            <figure>
-              <div class="piece-media">
-                <img
-                  src="assets/editorial-tailored-v3.webp"
-                  alt="Man in a white Ethiopian suit with green embroidery"
-                  width="603"
-                  height="800"
-                  loading="lazy"
-                />
-                <span class="piece-arrow" aria-hidden="true">↗</span>
-              </div>
-              <figcaption><span>03</span><strong>Tailoring</strong><span>Green Standard</span></figcaption>
+          <article class="runway-slide look-slide look-union layout-center">
+            <div class="look-bg" aria-hidden="true"></div>
+            <figure class="look-media" data-slide-media>
+              <img src="assets/editorial-union-v3.webp" alt="Couple in coordinated ivory and green Ethiopian clothing" width="1200" height="1500" loading="lazy" />
             </figure>
-          </article>
-        </div>
-      </section>
-
-      <section class="extended-collection section-pad" aria-labelledby="extended-title">
-        <div class="extended-heading reveal">
-          <p class="eyebrow">Extended collection</p>
-          <h2 id="extended-title">Different stories.<br /><em>One heritage.</em></h2>
-          <p>
-            A wider portrait of Habesharon—celebration, colour, companionship and style across generations.
-          </p>
-        </div>
-
-        <div class="extended-grid">
-          <article class="extended-look extended-look-portrait reveal">
-            <figure>
-              <img
-                src="assets/heritage-purple-v2.webp"
-                alt="Woman smiling in a flowing white dress with purple and pink decorative details"
-                loading="lazy"
-                width="900"
-                height="1125"
-              />
-              <figcaption>
-                <span>01</span>
-                <div><strong>Timeless</strong><small>For every generation</small></div>
-              </figcaption>
-            </figure>
+            <div class="look-overlay" aria-hidden="true"></div>
+            <div class="look-copy" data-slide-copy>
+              <p class="look-number">Look 02 · Together</p>
+              <h2>Ivory<br><em>Union</em></h2>
+              <p>Coordinated dressing for shared celebrations, finished with green detail.</p>
+            </div>
+            <p class="vertical-note">A STUDY IN TOGETHERNESS</p>
           </article>
 
-          <article class="extended-look extended-look-portrait reveal">
-            <figure>
-              <img
-                src="assets/together-always-v2.webp"
-                alt="Couple walking hand in hand outdoors in coordinated ivory clothing"
-                loading="lazy"
-                width="720"
-                height="900"
-              />
-              <figcaption>
-                <span>02</span>
-                <div><strong>Together</strong><small>A quieter kind of ceremony</small></div>
-              </figcaption>
+          <article class="runway-slide look-slide look-gold layout-high">
+            <div class="look-bg" aria-hidden="true"></div>
+            <figure class="look-media" data-slide-media>
+              <img src="assets/editorial-sun-v3.webp" alt="Woman in an ivory gown with yellow and gold embroidery" width="1200" height="1500" loading="lazy" />
             </figure>
+            <div class="look-overlay" aria-hidden="true"></div>
+            <div class="look-copy" data-slide-copy>
+              <p class="look-number">Look 03 · Statement</p>
+              <h2>Golden<br><em>Hour</em></h2>
+              <p>Warm embroidery and sculpted volume for a stronger ceremonial statement.</p>
+            </div>
+            <p class="vertical-note">CEREMONY · REIMAGINED</p>
           </article>
 
-          <article class="extended-look extended-look-portrait reveal">
-            <figure>
-              <img
-                src="assets/sunlit-yellow-v2.webp"
-                alt="Woman in a flowing white dress with vivid yellow details in a sunlit garden"
-                loading="lazy"
-                width="560"
-                height="700"
-              />
-              <figcaption>
-                <span>03</span>
-                <div><strong>Sunlit</strong><small>Colour in motion</small></div>
-              </figcaption>
+          <article class="runway-slide look-slide look-tailored layout-left">
+            <div class="look-bg" aria-hidden="true"></div>
+            <figure class="look-media" data-slide-media>
+              <img src="assets/editorial-tailored-v3.webp" alt="Man in a white Ethiopian suit with green woven detail" width="1200" height="1500" loading="lazy" />
             </figure>
-          </article>
-
-          <article class="extended-look extended-look-wide reveal">
-            <figure>
-              <img
-                src="assets/celebration-turquoise-v2.webp"
-                alt="Couple in coordinated white, turquoise and gold clothing at a celebration"
-                loading="lazy"
-                width="720"
-                height="540"
-              />
-              <figcaption>
-                <span>04</span>
-                <div><strong>Celebration</strong><small>Made to be shared</small></div>
-              </figcaption>
-            </figure>
-          </article>
-
-          <article class="extended-look extended-look-wide reveal">
-            <figure>
-              <img
-                src="assets/sisterhood-group-v2.webp"
-                alt="Six women in coordinated white dresses with colourful woven shoulder details"
-                loading="lazy"
-                width="799"
-                height="533"
-              />
-              <figcaption>
-                <span>05</span>
-                <div><strong>Sisterhood</strong><small>One rhythm, many stories</small></div>
-              </figcaption>
-            </figure>
+            <div class="look-overlay" aria-hidden="true"></div>
+            <div class="look-copy" data-slide-copy>
+              <p class="look-number">Look 04 · Tailoring</p>
+              <h2>Tailored<br><em>Roots</em></h2>
+              <p>Traditional pattern translated into a cleaner contemporary formal silhouette.</p>
+              <a class="outline-button" href="#order">Request this look</a>
+            </div>
+            <p class="vertical-note">THE NEW FORMAL</p>
           </article>
         </div>
-      </section>
 
-      <section class="craft" id="craft" data-section="craft">
-        <div class="craft-visual">
-          <div class="craft-image craft-image-main" role="img" aria-label="Ivory and gold textile detail"></div>
-          <figure class="craft-detail reveal">
-            <img src="assets/editorial-gold-v3.webp" alt="Gold embroidery detail on Ethiopian dress" loading="lazy" />
-          </figure>
+        <div class="runway-ui" aria-hidden="true">
+          <div class="runway-count"><span data-current>01</span><span>/</span><span>05</span></div>
+          <div class="runway-progress"><span data-progress></span></div>
+          <p>Scroll or swipe</p>
         </div>
 
-        <div class="craft-panel">
-          <div class="section-index reveal"><span>03</span> The craft</div>
-          <p class="craft-quote reveal">“The detail should feel close enough to touch.”</p>
-          <p class="craft-copy reveal">
-            Texture, embroidery and proportion do the storytelling. The website slows down here so the
-            material can become the focus.
-          </p>
-          <div class="craft-details reveal">
-            <p><span>01</span> Woven texture</p>
-            <p><span>02</span> Embroidered detail</p>
-            <p><span>03</span> Contemporary finishing</p>
-          </div>
+        <div class="runway-controls">
+          <button type="button" data-prev aria-label="Previous look">←</button>
+          <button type="button" data-next aria-label="Next look">→</button>
         </div>
-      </section>
-
-      <section class="atelier section-pad">
-        <div class="atelier-copy reveal">
-          <div class="section-index"><span>04</span> The atelier</div>
-          <p class="atelier-overline">For weddings · celebrations · personal pieces</p>
-          <h2>Made for your<br /><em>moment.</em></h2>
-          <p>
-            Share the occasion, preferred colour and size. Habesharon can then guide the conversation around
-            availability and custom requests.
-          </p>
-          <a class="dark-button" href="#order">Begin your request <span>↘</span></a>
-        </div>
-
-        <div class="atelier-visual reveal">
-          <figure class="atelier-image">
-            <img
-              src="assets/editorial-sun-v3.webp"
-              alt="Ivory dress with ornate gold embroidery"
-              width="736"
-              height="920"
-              loading="lazy"
-            />
-          </figure>
-          <p class="atelier-caption">A closer, quieter view of the work.</p>
-        </div>
-      </section>
-
-      <section class="order" id="order" data-section="order">
-        <div class="order-monogram" aria-hidden="true">HS</div>
-        <p class="eyebrow reveal">Private enquiries · Addis Ababa</p>
-        <h2 class="reveal">Create your<br /><em>Habesharon piece.</em></h2>
-        <p class="order-note reveal">
-          Ask about availability, sizing or a custom request. Start the conversation in the channel that is easiest for you.
-        </p>
-        <div class="order-actions reveal">
-          <a
-            class="light-button"
-            href="https://wa.me/251937678747?text=Hello%20Habesharon%2C%20I%20would%20like%20to%20ask%20about%20your%20collection."
-            target="_blank"
-            rel="noreferrer"
-          >WhatsApp <span>↗</span></a>
-          <a class="order-social" href="https://www.instagram.com/habesha.ron/" target="_blank" rel="noreferrer">Instagram ↗</a>
-          <a class="order-social" href="https://www.tiktok.com/@habesha_ron" target="_blank" rel="noreferrer">TikTok ↗</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <a class="brand footer-brand" href="#home">
-        <span class="brand-mark" aria-hidden="true">HS</span>
-        <span class="brand-name">Habesharon</span>
-      </a>
-      <div class="footer-links">
-        <a href="tel:+251937678747">+251 937 678 747</a>
-        <a href="mailto:sharonalemayehu@gmail.com">Email</a>
       </div>
-      <p>© <span data-year></span> Habesharon</p>
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+    <section class="story section-pad" id="story" data-section="story">
+      <div class="section-index reveal"><span>01</span> Our story</div>
+
+      <div class="story-head">
+        <p class="story-kicker reveal">Tradition is the starting point.</p>
+        <h2 class="reveal">Rooted here.<br><em>Designed forward.</em></h2>
+        <div class="story-copy reveal">
+          <p>Habesharon brings Ethiopian dress into a cleaner contemporary language—honouring ceremony, pattern and detail without making the clothing feel frozen in time.</p>
+          <p>The result is distinctly Ethiopian and confidently present.</p>
+        </div>
+      </div>
+
+      <div class="story-collage">
+        <figure class="story-main reveal">
+          <img src="assets/editorial-rose-v3.webp" alt="Full length ceremonial Ethiopian gown" loading="lazy" />
+        </figure>
+        <div class="story-quote reveal">
+          <span></span>
+          <p>Heritage gives the language.<br>The silhouette gives it movement.</p>
+        </div>
+        <figure class="story-detail reveal">
+          <img src="assets/editorial-gold-v3.webp" alt="Gold embroidery and Ethiopian textile detail" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="collection section-pad" id="collection" data-section="collection">
+      <div class="collection-heading reveal">
+        <div class="section-index"><span>02</span> Editorial collection</div>
+        <h2>Pieces with<br><em>presence.</em></h2>
+        <p>Women, couples, detail and tailoring—presented as a lookbook rather than a product catalogue.</p>
+      </div>
+
+      <div class="editorial-grid">
+        <article class="editorial-card card-large reveal">
+          <figure>
+            <img src="assets/editorial-rose-v3.webp" alt="Ivory ceremonial gown with woven red details" loading="lazy" />
+            <figcaption><span>01</span><div><strong>Ceremony</strong><small>Rose Heritage</small></div></figcaption>
+          </figure>
+        </article>
+
+        <article class="editorial-card card-tall reveal">
+          <figure>
+            <img src="assets/editorial-union-v3.webp" alt="Couple in coordinated ivory and green clothing" loading="lazy" />
+            <figcaption><span>02</span><div><strong>Together</strong><small>Ivory Union</small></div></figcaption>
+          </figure>
+        </article>
+
+        <article class="editorial-card card-small reveal">
+          <figure>
+            <img src="assets/editorial-gold-v3.webp" alt="Gold embroidered bodice with white skirt" loading="lazy" />
+            <figcaption><span>03</span><div><strong>Detail</strong><small>Gold Study</small></div></figcaption>
+          </figure>
+        </article>
+
+        <article class="editorial-card card-wide reveal">
+          <figure>
+            <img src="assets/editorial-tailored-v3.webp" alt="Menswear with green woven Ethiopian detail" loading="lazy" />
+            <figcaption><span>04</span><div><strong>Menswear</strong><small>Tailored Roots</small></div></figcaption>
+          </figure>
+        </article>
+
+        <article class="editorial-card card-statement reveal">
+          <figure>
+            <img src="assets/editorial-sun-v3.webp" alt="Statement white gown with yellow and gold decorative detail" loading="lazy" />
+            <figcaption><span>05</span><div><strong>Statement</strong><small>Golden Hour</small></div></figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="legacy-strip section-pad" aria-labelledby="legacy-title">
+      <div class="legacy-heading reveal">
+        <p class="eyebrow">More stories</p>
+        <h2 id="legacy-title">Worn across<br><em>generations.</em></h2>
+      </div>
+
+      <div class="legacy-track">
+        <figure class="legacy-card reveal">
+          <img src="assets/heritage-purple-v2.webp" alt="Older woman in a white, purple and pink Ethiopian dress" loading="lazy" />
+          <figcaption><strong>Timeless</strong><span>For every generation</span></figcaption>
+        </figure>
+        <figure class="legacy-card reveal">
+          <img src="assets/together-always-v2.webp" alt="Couple walking hand in hand in ivory clothing" loading="lazy" />
+          <figcaption><strong>Together</strong><span>Quiet ceremony</span></figcaption>
+        </figure>
+        <figure class="legacy-card reveal">
+          <img src="assets/sunlit-yellow-v2.webp" alt="Woman in a white dress with yellow detail" loading="lazy" />
+          <figcaption><strong>Sunlit</strong><span>Colour in motion</span></figcaption>
+        </figure>
+        <figure class="legacy-card reveal">
+          <img src="assets/sisterhood-group-v2.webp" alt="Group of women in coordinated Ethiopian dresses" loading="lazy" />
+          <figcaption><strong>Sisterhood</strong><span>One rhythm, many stories</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="craft" id="craft" data-section="craft">
+      <div class="craft-visual">
+        <img class="craft-main" src="assets/editorial-gold-v3.webp" alt="Close fashion view showing gold textile detail" loading="lazy" />
+        <div class="craft-tag tag-one reveal"><span>01</span> Woven texture</div>
+        <div class="craft-tag tag-two reveal"><span>02</span> Embroidered detail</div>
+        <div class="craft-tag tag-three reveal"><span>03</span> Contemporary finish</div>
+      </div>
+
+      <div class="craft-copy">
+        <div class="section-index reveal"><span>03</span> The craft</div>
+        <h2 class="reveal">Close enough<br><em>to feel.</em></h2>
+        <p class="reveal">Texture, embroidery and proportion do the storytelling. This section deliberately slows the page down so the material becomes the focus.</p>
+      </div>
+    </section>
+
+    <section class="atelier section-pad">
+      <div class="atelier-copy reveal">
+        <div class="section-index"><span>04</span> Custom pieces</div>
+        <p class="atelier-overline">For weddings · celebrations · personal pieces</p>
+        <h2>Made for your<br><em>moment.</em></h2>
+        <p>Start with a look you love, then share your occasion, preferred colour and size. Habesharon can continue the conversation directly.</p>
+      </div>
+
+      <div class="order-steps reveal" aria-label="Custom order process">
+        <div><span>01</span><strong>Choose a look</strong><p>Send the style or image that speaks to you.</p></div>
+        <div><span>02</span><strong>Share the occasion</strong><p>Wedding, celebration or a personal piece.</p></div>
+        <div><span>03</span><strong>Discuss colour & size</strong><p>Confirm the direction before the piece moves forward.</p></div>
+        <div><span>04</span><strong>Continue on WhatsApp</strong><p>Keep the request simple and direct.</p></div>
+      </div>
+    </section>
+
+    <section class="order" id="order" data-section="order">
+      <div class="order-monogram" aria-hidden="true">HS</div>
+      <p class="eyebrow reveal">Private enquiries · Addis Ababa</p>
+      <h2 class="reveal">Create your<br><em>Habesharon piece.</em></h2>
+      <p class="order-note reveal">Ask about availability, sizing or a custom request. Start the conversation in the channel that is easiest for you.</p>
+      <div class="order-actions reveal">
+        <a class="light-button" href="https://wa.me/251937678747?text=Hello%20Habesharon%2C%20I%20would%20like%20to%20ask%20about%20your%20collection." target="_blank" rel="noreferrer">WhatsApp <span>↗</span></a>
+        <a class="order-social" href="https://www.instagram.com/habesha.ron/" target="_blank" rel="noreferrer">Instagram ↗</a>
+        <a class="order-social" href="https://www.tiktok.com/@habesha_ron" target="_blank" rel="noreferrer">TikTok ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <a class="mobile-whatsapp" href="https://wa.me/251937678747?text=Hello%20Habesharon%2C%20I%20would%20like%20to%20ask%20about%20your%20collection." target="_blank" rel="noreferrer">Enquire on WhatsApp <span>↗</span></a>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home"><span class="brand-mark">HS</span><span class="brand-name">Habesharon</span></a>
+    <div class="footer-links"><a href="tel:+251937678747">+251 937 678 747</a><a href="mailto:sharonalemayehu@gmail.com">Email</a></div>
+    <p>© <span data-year></span> Habesharon</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
