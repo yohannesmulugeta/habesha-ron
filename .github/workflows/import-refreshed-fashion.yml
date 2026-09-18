@@ -1,0 +1,47 @@
+name: Import refreshed Habesharon fashion imagery
+
+on:
+  push:
+    paths:
+      - ".github/workflows/import-refreshed-fashion.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  import-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install WebP tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y webp
+
+      - name: Download and optimize six refreshed images
+        run: |
+          set -euo pipefail
+          mkdir -p assets /tmp/habesharon-refresh
+
+          curl -fL "https://at.adobe.com/f5EwN23H1gAKexyh" -o /tmp/habesharon-refresh/red.png
+          curl -fL "https://at.adobe.com/udrk4tXFTI4LxPZx" -o /tmp/habesharon-refresh/rose.png
+          curl -fL "https://at.adobe.com/WOlqO8BFyKePnMcV" -o /tmp/habesharon-refresh/union.png
+          curl -fL "https://at.adobe.com/BJI0U3MnjiqBzOzM" -o /tmp/habesharon-refresh/gold.png
+          curl -fL "https://at.adobe.com/4GJstkF3Jy00iVld" -o /tmp/habesharon-refresh/tailored.png
+          curl -fL "https://at.adobe.com/vZMOtydJV2qxPCDT" -o /tmp/habesharon-refresh/sun.png
+
+          cwebp -quiet -q 84 -resize 1200 0 /tmp/habesharon-refresh/red.png -o assets/editorial-red-v3.webp
+          cwebp -quiet -q 84 -resize 1200 0 /tmp/habesharon-refresh/rose.png -o assets/editorial-rose-v3.webp
+          cwebp -quiet -q 84 -resize 1200 0 /tmp/habesharon-refresh/union.png -o assets/editorial-union-v3.webp
+          cwebp -quiet -q 84 -resize 1200 0 /tmp/habesharon-refresh/gold.png -o assets/editorial-gold-v3.webp
+          cwebp -quiet -q 84 -resize 1200 0 /tmp/habesharon-refresh/tailored.png -o assets/editorial-tailored-v3.webp
+          cwebp -quiet -q 84 -resize 1200 0 /tmp/habesharon-refresh/sun.png -o assets/editorial-sun-v3.webp
+
+      - name: Commit refreshed assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/editorial-*-v3.webp
+          git commit -m "Add refreshed editorial fashion imagery"
+          git push
