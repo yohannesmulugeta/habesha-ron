@@ -91,17 +91,20 @@ a:focus-visible,
   align-items: center;
   justify-content: space-between;
   color: var(--ivory);
-  mix-blend-mode: difference;
-  transition: background 300ms ease, color 300ms ease, height 300ms ease;
+  background: linear-gradient(180deg, rgba(17, 13, 11, 0.72) 0%, rgba(17, 13, 11, 0.34) 58%, rgba(17, 13, 11, 0) 100%);
+  -webkit-backdrop-filter: blur(4px) saturate(112%);
+  backdrop-filter: blur(4px) saturate(112%);
+  transition: background 300ms ease, color 300ms ease, height 300ms ease, backdrop-filter 300ms ease;
 }
 
 .site-header.is-solid {
   height: 68px;
   color: var(--ink);
-  background: rgba(243, 239, 232, 0.94);
-  mix-blend-mode: normal;
+  background: rgba(243, 239, 232, 0.96);
   border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
+  box-shadow: 0 10px 32px rgba(27, 22, 19, 0.08);
 }
 
 .brand {
@@ -136,6 +139,13 @@ a:focus-visible,
 
 .site-nav a {
   position: relative;
+  color: inherit;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.42);
+}
+
+.site-header.is-solid .site-nav a,
+.site-header.is-solid .brand {
+  text-shadow: none;
 }
 
 .site-nav a:not(.nav-cta)::after {
@@ -158,7 +168,15 @@ a:focus-visible,
 
 .nav-cta {
   padding: 0.8rem 1.1rem;
-  border: 1px solid currentColor;
+  border: 1px solid rgba(243, 239, 232, 0.72);
+  background: rgba(18, 14, 12, 0.16);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.site-header.is-solid .nav-cta {
+  border-color: rgba(27, 22, 19, 0.42);
+  background: rgba(27, 22, 19, 0.03);
 }
 
 .menu-toggle {
@@ -200,7 +218,7 @@ a:focus-visible,
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: none;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
   cursor: grab;
@@ -335,21 +353,68 @@ a:focus-visible,
   text-align: right;
 }
 
-.look-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.look-slide {
+  --look-image: none;
+  --look-focus: center 12%;
+  background: #1b1613;
 }
 
-.look-rose .look-image { object-position: center 22%; }
-.look-union .look-image { object-position: center 30%; }
-.look-gold .look-image { object-position: center 30%; }
-.look-tailored .look-image { object-position: center 22%; }
+.look-slide::before {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  background-image: var(--look-image);
+  background-position: var(--look-focus);
+  background-size: cover;
+  filter: blur(24px) saturate(0.72) brightness(0.66);
+  opacity: 0.58;
+  transform: scale(1.06);
+}
+
+.look-image {
+  position: absolute;
+  z-index: 1;
+  top: -3%;
+  right: 0;
+  width: auto;
+  max-width: none;
+  height: 106%;
+  object-fit: contain;
+  object-position: right center;
+  filter: saturate(0.98) contrast(1.02);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 9%, #000 24%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 9%, #000 24%);
+  will-change: transform;
+  transform: translateZ(0) scale(1.005);
+}
+
+.look-rose {
+  --look-image: url("assets/rose-heritage.webp");
+  --look-focus: center 10%;
+}
+
+.look-union {
+  --look-image: url("assets/ivory-union.webp");
+  --look-focus: center 8%;
+}
+
+.look-gold {
+  --look-image: url("assets/golden-hour.webp");
+  --look-focus: center 9%;
+}
+
+.look-tailored {
+  --look-image: url("assets/tailored-roots.webp");
+  --look-focus: center 8%;
+}
 
 .look-shade {
   position: absolute;
+  z-index: 1;
   inset: 0;
-  background: linear-gradient(90deg, rgba(15, 12, 10, 0.75) 0%, rgba(15, 12, 10, 0.14) 55%, rgba(15, 12, 10, 0.04) 100%);
+  background:
+    linear-gradient(90deg, rgba(15, 12, 10, 0.84) 0%, rgba(15, 12, 10, 0.52) 38%, rgba(15, 12, 10, 0.12) 68%, rgba(15, 12, 10, 0.08) 100%),
+    linear-gradient(0deg, rgba(15, 12, 10, 0.24) 0%, transparent 35%);
 }
 
 .look-copy {
@@ -955,6 +1020,23 @@ a:focus-visible,
 }
 
 @media (max-width: 680px) {
+  .look-slide::before {
+    opacity: 0.34;
+    filter: blur(18px) saturate(0.8) brightness(0.64);
+  }
+
+  .look-image {
+    top: 0;
+    right: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--look-focus);
+    -webkit-mask-image: none;
+    mask-image: none;
+    transform: none;
+  }
+
   .runway {
     height: 450vh;
   }
