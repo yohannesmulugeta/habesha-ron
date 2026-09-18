@@ -405,7 +405,7 @@ a:focus-visible,
 .look-frame {
   position: absolute;
   z-index: 1;
-  top: 0;
+  top: 86px;
   right: var(--frame-right);
   bottom: 0;
   width: var(--frame-width);
@@ -1086,7 +1086,162 @@ a:focus-visible,
   transform: translateY(0);
 }
 
+.extended-collection {
+  position: relative;
+  overflow: hidden;
+  background: #f4f0e8;
+}
+
+.extended-heading {
+  display: grid;
+  grid-template-columns: 0.7fr 1.5fr 0.8fr;
+  gap: 5vw;
+  align-items: end;
+  margin-bottom: clamp(4rem, 7vw, 7rem);
+}
+
+.extended-heading .eyebrow {
+  margin: 0;
+  color: var(--clay);
+}
+
+.extended-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(4rem, 6.5vw, 7.3rem);
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+}
+
+.extended-heading h2 em {
+  font-weight: 400;
+}
+
+.extended-heading > p:last-child {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.extended-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(1rem, 1.8vw, 2rem);
+  align-items: start;
+}
+
+.extended-look {
+  position: relative;
+  min-width: 0;
+}
+
+.extended-look:nth-child(1) { grid-column: 1 / span 4; }
+.extended-look:nth-child(2) { grid-column: 5 / span 4; margin-top: clamp(3rem, 6vw, 6rem); }
+.extended-look:nth-child(3) { grid-column: 9 / span 4; }
+.extended-look:nth-child(4) { grid-column: 1 / span 6; margin-top: clamp(1rem, 2vw, 2rem); }
+.extended-look:nth-child(5) { grid-column: 7 / span 6; margin-top: clamp(4rem, 7vw, 7rem); }
+
+.extended-look figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: #d9cec2;
+}
+
+.extended-look img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  filter: saturate(0.94) contrast(1.01);
+  transition: transform 900ms var(--ease), filter 350ms ease;
+}
+
+.extended-look-portrait img {
+  aspect-ratio: 4 / 5;
+}
+
+.extended-look-wide img {
+  aspect-ratio: 4 / 3;
+}
+
+.extended-look:nth-child(5) img {
+  aspect-ratio: 3 / 2;
+}
+
+.extended-look::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 38%;
+  background: linear-gradient(0deg, rgba(17, 13, 11, 0.58), transparent);
+  pointer-events: none;
+}
+
+.extended-look figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 1.25rem;
+  bottom: 1.2rem;
+  left: 1.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: end;
+  color: var(--ivory);
+}
+
+.extended-look figcaption > span {
+  padding-bottom: 0.18rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.extended-look figcaption div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.extended-look figcaption strong {
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 2.4vw, 2.7rem);
+  font-weight: 500;
+  line-height: 0.9;
+}
+
+.extended-look figcaption small {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.extended-look:hover img {
+  transform: scale(1.025);
+  filter: saturate(1.02) contrast(1.02);
+}
+
 @media (max-width: 1080px) {
+  .extended-heading {
+    grid-template-columns: 0.7fr 1.4fr;
+  }
+
+  .extended-heading > p:last-child {
+    grid-column: 2;
+  }
+
+  .extended-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .extended-look:nth-child(n) {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .extended-look:nth-child(2),
+  .extended-look:nth-child(5) {
+    margin-top: 3rem;
+  }
+
   .site-header { padding: 0 1.4rem; }
 
   .site-header::after {
@@ -1198,6 +1353,47 @@ a:focus-visible,
 }
 
 @media (max-width: 760px) {
+  .extended-heading {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .extended-heading > p:last-child {
+    grid-column: auto;
+    max-width: 30rem;
+  }
+
+  .extended-heading h2 {
+    font-size: clamp(3.8rem, 17vw, 6rem);
+  }
+
+  .extended-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .extended-look:nth-child(n) {
+    margin-top: 0;
+  }
+
+  .extended-look:nth-child(even) {
+    margin-left: 12vw;
+  }
+
+  .extended-look:nth-child(odd) {
+    margin-right: 7vw;
+  }
+
+  .extended-look figcaption {
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .extended-look figcaption strong {
+    font-size: 2rem;
+  }
+
   .site-header { height: 72px; }
   .site-header.is-solid { height: 64px; }
 
@@ -1257,11 +1453,11 @@ a:focus-visible,
   .look-union .look-frame,
   .look-gold .look-frame,
   .look-tailored .look-frame {
-    top: 0;
+    top: 72px;
     right: 0;
     bottom: auto;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 72px);
   }
 
   .look-image {
