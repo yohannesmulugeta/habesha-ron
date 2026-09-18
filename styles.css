@@ -236,7 +236,7 @@ a:focus-visible,
   inset: 0;
   background-image:
     linear-gradient(90deg, rgba(27, 22, 19, 0.88) 0%, rgba(27, 22, 19, 0.54) 45%, rgba(27, 22, 19, 0.06) 100%),
-    url("https://habesharon.my.canva.site/habesharon/_assets/media/8b4129a476a997ba2642598d2f32c129.png");
+    url("assets/ivory-fabric.webp");
   background-position: center;
   background-size: cover;
   transform: scale(1.04);
@@ -624,7 +624,7 @@ a:focus-visible,
 
 .craft-image {
   min-height: 720px;
-  background-image: url("https://habesharon.my.canva.site/habesharon/_assets/media/9adaae8b3ab5436e281761d430e769b7.jpg");
+  background-image: url("assets/gold-fabric.webp");
   background-position: center;
   background-size: cover;
 }
@@ -890,7 +890,7 @@ a:focus-visible,
   .intro-fabric {
     background-image:
       linear-gradient(0deg, rgba(27, 22, 19, 0.82) 0%, rgba(27, 22, 19, 0.1) 70%),
-      url("https://habesharon.my.canva.site/habesharon/_assets/media/8b4129a476a997ba2642598d2f32c129.png");
+      url("assets/ivory-fabric.webp");
   }
 
   .intro-wordmark {
