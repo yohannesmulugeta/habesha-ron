@@ -365,7 +365,7 @@ a:focus-visible,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center 18%;
 }
 
 .intro-wordmark {
@@ -471,14 +471,14 @@ a:focus-visible,
 }
 
 .look-rose {
-  --image: url("assets/rose-heritage.webp");
+  --image: url("assets/editorial-rose-v3.webp");
   --focus: center 18%;
   --frame-width: min(55vw, 880px);
   --frame-right: 4vw;
 }
 
 .look-union {
-  --image: url("assets/ivory-union.webp");
+  --image: url("assets/editorial-union-v3.webp");
   --focus: center 20%;
   --frame-width: min(62vw, 1030px);
   --frame-right: -1vw;
@@ -493,7 +493,7 @@ a:focus-visible,
 .look-union .look-copy h2 { font-size: clamp(4.6rem, 7.6vw, 8.3rem); }
 
 .look-gold {
-  --image: url("assets/golden-hour.webp");
+  --image: url("assets/editorial-sun-v3.webp");
   --focus: center 18%;
   --frame-width: min(50vw, 790px);
   --frame-right: 8vw;
@@ -507,7 +507,7 @@ a:focus-visible,
 .look-gold .look-copy h2 { font-size: clamp(4.7rem, 8vw, 8.8rem); }
 
 .look-tailored {
-  --image: url("assets/tailored-roots.webp");
+  --image: url("assets/editorial-tailored-v3.webp");
   --focus: center 16%;
   --frame-width: min(53vw, 840px);
   --frame-right: 5vw;
