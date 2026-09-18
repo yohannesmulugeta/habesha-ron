@@ -11,8 +11,8 @@ const navigation = document.querySelector('.site-nav');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 let isTouchingRail = false;
-let pageScrollFrame = 0;
-let smoothingFrame = 0;
+let pageFrame = 0;
+let railFrame = 0;
 let targetRailLeft = rail ? rail.scrollLeft : 0;
 let currentRailLeft = targetRailLeft;
 
@@ -23,13 +23,36 @@ function activeSlideIndex() {
   return clamp(Math.round(rail.scrollLeft / rail.clientWidth), 0, slides.length - 1);
 }
 
+function updateSlideStates() {
+  if (!rail || !rail.clientWidth) return;
+  const center = rail.scrollLeft + rail.clientWidth / 2;
+
+  slides.forEach((slide) => {
+    const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+    const distance = Math.abs(center - slideCenter) / rail.clientWidth;
+    slide.classList.toggle('is-current', distance < 0.52);
+
+    if (!reducedMotion.matches) {
+      const media = slide.querySelector('[data-slide-media]');
+      const copy = slide.querySelector('[data-slide-copy]');
+      const signed = (slideCenter - center) / rail.clientWidth;
+      if (media) media.style.transform = `translate3d(${signed * 14}px,0,0)`;
+      if (copy) copy.style.transform = `translate3d(${signed * -10}px,0,0)`;
+    }
+  });
+}
+
 function updateRunwayInterface() {
-  if (!rail || !progressBar || !currentLabel) return;
+  if (!rail) return;
+
   const maximum = Math.max(rail.scrollWidth - rail.clientWidth, 1);
   const position = clamp(rail.scrollLeft / maximum, 0, 1);
   const index = activeSlideIndex();
-  currentLabel.textContent = String(index + 1).padStart(2, '0');
-  progressBar.style.width = `${position * 100}%`;
+
+  if (currentLabel) currentLabel.textContent = String(index + 1).padStart(2, '0');
+  if (progressBar) progressBar.style.width = `${position * 100}%`;
+
+  updateSlideStates();
 }
 
 function setRailPosition(value) {
@@ -39,26 +62,25 @@ function setRailPosition(value) {
   updateRunwayInterface();
 }
 
-function runRailSmoothing() {
-  if (!rail || smoothingFrame || reducedMotion.matches || isTouchingRail) return;
+function smoothRailToTarget() {
+  if (!rail || railFrame || reducedMotion.matches || isTouchingRail) return;
 
   const tick = () => {
-    smoothingFrame = 0;
+    railFrame = 0;
     if (!rail || isTouchingRail) return;
 
     const delta = targetRailLeft - currentRailLeft;
-    if (Math.abs(delta) < 0.35) {
+
+    if (Math.abs(delta) < 0.25) {
       setRailPosition(targetRailLeft);
       return;
     }
 
-    // A restrained lerp keeps vertical wheel/trackpad input feeling fluid
-    // without adding a long, floaty delay.
-    setRailPosition(currentRailLeft + delta * 0.14);
-    smoothingFrame = window.requestAnimationFrame(tick);
+    setRailPosition(currentRailLeft + delta * 0.13);
+    railFrame = window.requestAnimationFrame(tick);
   };
 
-  smoothingFrame = window.requestAnimationFrame(tick);
+  railFrame = window.requestAnimationFrame(tick);
 }
 
 function updateFromPageScroll() {
@@ -71,53 +93,63 @@ function updateFromPageScroll() {
   targetRailLeft = progress * maximum;
 
   if (!isTouchingRail) {
-    if (reducedMotion.matches) {
-      setRailPosition(targetRailLeft);
-    } else {
-      runRailSmoothing();
-    }
+    if (reducedMotion.matches) setRailPosition(targetRailLeft);
+    else smoothRailToTarget();
   }
 
   if (header) {
-    header.classList.toggle('is-solid', rect.bottom < window.innerHeight * 0.35);
+    const runwayHasPassed = rect.bottom < window.innerHeight * 0.32;
+    header.classList.toggle('is-solid', runwayHasPassed);
   }
 }
 
-function requestScrollUpdate() {
-  if (pageScrollFrame) return;
-  pageScrollFrame = window.requestAnimationFrame(() => {
-    pageScrollFrame = 0;
+function requestPageUpdate() {
+  if (pageFrame) return;
+
+  pageFrame = window.requestAnimationFrame(() => {
+    pageFrame = 0;
     updateFromPageScroll();
   });
 }
 
 function runwayDestinationForRail(left) {
+  if (!rail || !runway) return window.scrollY;
+
   const maximum = Math.max(rail.scrollWidth - rail.clientWidth, 1);
   const progress = clamp(left / maximum, 0, 1);
   const runwayTop = window.scrollY + runway.getBoundingClientRect().top;
   const scrollDistance = Math.max(runway.offsetHeight - window.innerHeight, 0);
+
   return runwayTop + progress * scrollDistance;
 }
 
 function syncPageToRail() {
   if (!runway || !rail) return;
+
   targetRailLeft = rail.scrollLeft;
   currentRailLeft = rail.scrollLeft;
-  window.scrollTo({ top: runwayDestinationForRail(rail.scrollLeft), behavior: 'auto' });
+
+  window.scrollTo({
+    top: runwayDestinationForRail(rail.scrollLeft),
+    behavior: 'auto'
+  });
+
   updateRunwayInterface();
 }
 
 function goToSlide(index) {
   if (!rail || !runway || !slides.length) return;
+
   const nextIndex = clamp(index, 0, slides.length - 1);
   const left = nextIndex * rail.clientWidth;
   const destination = runwayDestinationForRail(left);
 
   targetRailLeft = left;
+
   if (reducedMotion.matches) {
     setRailPosition(left);
   } else {
-    runRailSmoothing();
+    smoothRailToTarget();
   }
 
   window.scrollTo({
@@ -126,10 +158,11 @@ function goToSlide(index) {
   });
 }
 
-window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+window.addEventListener('scroll', requestPageUpdate, { passive: true });
+
 window.addEventListener('resize', () => {
   currentRailLeft = rail ? rail.scrollLeft : 0;
-  requestScrollUpdate();
+  requestPageUpdate();
 });
 
 if (rail) {
@@ -143,15 +176,14 @@ if (rail) {
 
   rail.addEventListener('pointerdown', () => {
     isTouchingRail = true;
-    if (smoothingFrame) {
-      window.cancelAnimationFrame(smoothingFrame);
-      smoothingFrame = 0;
+
+    if (railFrame) {
+      window.cancelAnimationFrame(railFrame);
+      railFrame = 0;
     }
   });
 
   rail.addEventListener('pointerup', () => {
-    // Let native momentum finish briefly, then make the page position agree
-    // with the horizontal gesture so it never snaps back.
     window.setTimeout(() => {
       isTouchingRail = false;
       syncPageToRail();
@@ -168,6 +200,7 @@ if (rail) {
       event.preventDefault();
       goToSlide(activeSlideIndex() + 1);
     }
+
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
       goToSlide(activeSlideIndex() - 1);
@@ -181,14 +214,14 @@ nextButton?.addEventListener('click', () => goToSlide(activeSlideIndex() + 1));
 menuButton?.addEventListener('click', () => {
   const open = navigation?.classList.toggle('is-open') ?? false;
   menuButton.setAttribute('aria-expanded', String(open));
-  document.body.style.overflow = open ? 'hidden' : '';
+  document.body.classList.toggle('menu-open', open);
 });
 
 navigation?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
     navigation.classList.remove('is-open');
     menuButton?.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
   });
 });
 
@@ -201,12 +234,32 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.16 }
+  { threshold: 0.14 }
 );
 
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const id = entry.target.getAttribute('data-section');
+      navigation?.querySelectorAll('[data-nav]').forEach((link) => {
+        link.classList.toggle('is-active', link.getAttribute('data-nav') === id);
+      });
+    });
+  },
+  {
+    rootMargin: '-35% 0px -55% 0px',
+    threshold: 0
+  }
+);
+
+document.querySelectorAll('[data-section]').forEach((section) => sectionObserver.observe(section));
 
 const year = document.querySelector('[data-year]');
 if (year) year.textContent = new Date().getFullYear();
 
 updateFromPageScroll();
+updateRunwayInterface();
