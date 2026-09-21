@@ -139,3 +139,8 @@ if(year)year.textContent=new Date().getFullYear();
 
 syncFromPage();
 updateUI();
+
+// Avoid stale page snapshots in embedded browsers such as Instagram.
+window.addEventListener('pageshow', event => {
+  if (event.persisted) window.location.reload();
+});
