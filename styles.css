@@ -131,7 +131,7 @@ button{font:inherit}
 .legacy-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.4rem}
 .legacy-track::-webkit-scrollbar{display:none}
 .legacy-card{flex:0 0 min(28vw,390px);margin:0;scroll-snap-align:start}
-.legacy-card img{aspect-ratio:4/5;object-fit:cover}
+.legacy-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#d8cec2}
 .legacy-card figcaption{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
 .legacy-card strong{font-family:var(--serif);font-size:1.35rem;font-weight:500}
 .legacy-card span{align-self:end;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase}
@@ -265,7 +265,7 @@ button{font:inherit}
   .editorial-grid{display:flex;gap:.85rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:-1.35rem;padding-right:1.35rem}
   .editorial-grid::-webkit-scrollbar{display:none}
   .editorial-card{flex:0 0 80vw;scroll-snap-align:start}.editorial-card figure,.card-small figure,.card-wide figure{height:110vw;max-height:690px}
-  .legacy-track{margin-right:-1.35rem;padding-right:1.35rem}.legacy-card{flex-basis:77vw}
+  .legacy-track{margin-right:-1.35rem;padding-right:1.35rem}.legacy-card{flex-basis:77vw}\n  .legacy-card.reveal{opacity:1;transform:none}
   .craft-visual{min-height:68vh}.craft-main{object-position:center 16%}.craft-tag{font-size:.52rem}.tag-one{left:5%;top:25%}.tag-two{right:5%;top:52%}.tag-three{left:8%;bottom:14%}
   .craft-copy{min-height:68vh;padding:4rem 1.35rem}.craft-copy .section-index{margin-bottom:4rem}.craft-copy h2{font-size:clamp(3.8rem,17vw,6rem)}
   .atelier{grid-template-columns:1fr;gap:4rem}.atelier-copy .section-index{margin-bottom:3.5rem}
